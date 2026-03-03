@@ -1,168 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
-       .ul1 {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research — Ngoc Dung Huynh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --ink: #0f1117; --ink-soft: #3a3d4a; --accent: #1a56db; --accent-warm: #c2410c; --surface: #f8f7f4; --card: #ffffff; --border: #e4e1da; --tag-bg: #eef2ff; --tag-color: #3730a3; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); font-size: 16px; line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(248,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.875rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .page-hero { max-width: 1100px; margin: 0 auto; padding: 4rem clamp(1.5rem,5vw,4rem) 2rem; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.5rem; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    section { max-width: 1100px; margin: 0 auto; padding: 3rem clamp(1.5rem,5vw,4rem); }
+    .research-grid { display: flex; flex-direction: column; gap: 2rem; }
+    .research-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 2rem; border-top: 3px solid var(--accent); }
+    .research-card.warm { border-top-color: var(--accent-warm); }
+    .research-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; }
+    .research-title { font-family: 'DM Serif Display', serif; font-size: 1.3rem; line-height: 1.3; }
+    .research-period { font-family: 'DM Mono', monospace; font-size: 0.75rem; color: var(--ink-soft); background: var(--tag-bg); padding: 0.25rem 0.7rem; border-radius: 100px; white-space: nowrap; }
+    .research-org { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.75rem; }
+    .research-body { color: var(--ink-soft); font-size: 0.9rem; }
+    .research-body p { margin-bottom: 0.75rem; }
+    .research-body ul { padding-left: 1.2rem; }
+    .research-body li { margin-bottom: 0.4rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .tag { background: var(--tag-bg); color: var(--tag-color); border-radius: 6px; padding: 0.2rem 0.6rem; font-size: 0.78rem; font-weight: 500; }
+    footer { background: var(--ink); color: #9ca3af; text-align: center; padding: 2rem; font-size: 0.875rem; margin-top: 4rem; }
+    footer a { color: #c7d2fe; text-decoration: none; }
+    @media (max-width: 640px) { .nav-links { gap: 1rem; } .nav-links a { font-size: 0.78rem; } }
+  </style>
+</head>
+<body>
 
-        .li1 {
-        float: left;
-        }
+<nav>
+  <a class="nav-logo" href="index.html">NDH</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html" class="active">Research</a></li>
+    <li><a href="publication.html">Publications</a></li>
+    <li><a href="repository.html">Projects</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
 
-        .li1a a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
+<div class="page-hero">
+  <p class="section-label">Research</p>
+  <h1>Research Experience</h1>
+  <p style="color: var(--ink-soft); max-width: 620px;">My research sits at the intersection of vision, language, and speech — building systems that see, hear, and reason together.</p>
+</div>
 
-        .li1ah a:hover {
-        background-color: #111;
-        }
-        .img-circle {
-            border-radius: 50%;
-        }
-        li.underline {
-          padding-bottom: 20px;
-          border-bottom:1px solid silver;
-        }
-        ul.no-bullets {
-          list-style-type: none;
-        }
-        
-    </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<section>
+  <div class="research-grid">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ngoc Dung Huynh</title>
-  </head>
-  <body>
-    <div class = "container">
-      <div class = "masthead">
-        <div class = "row">
-            <div class = "col-sm-9" style = "padding-top: 60px">
-                <h2>Ngoc Dung Huynh</h2>
-                <h5>BSc. in Mathematics, MSc. in Data Science</h5>
-                <h5>PhD Candidate in Computer Science</h5>
-            </div>
-            <div class="col-sm-3">
-                <div style="text-align:center">
-                    <img src="./images/deakinlogo.jpg" height="200" alt="Deakin logo" />
-                </div>
-            </div>
-        </div>
-        <ul class = "nav nav-justified ul1">
-            <li class="li1 li1a li1ah"><a  href="index.html">Home</a></li>
-            <li class="li1 li1a li1ah"><a  href="repository.html">Respository</a></li>
-            <li class="li1 li1a li1ah"><a class="active" href="research.html"><b>Research</b></a></li>
-            <li class="li1 li1a li1ah "><a href="publication.html">Publications & Awards</a></li>
-            <li class="li1 li1a li1ah"><a href="cv.html">CV</a></li>
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">Multi-modal AI & Large-Scale Data Engineering</div>
+        <span class="research-period">Jan 2025 – Present</span>
+      </div>
+      <div class="research-org">Technology Innovation Institute (TII) · Engineering Consultant</div>
+      <div class="research-body">
+        <p>Supporting production ML workflows for <strong>Falcon-H</strong> — TII's large-scale multi-modal model. My work spans internet-scale data acquisition, cleaning, and model alignment dataset generation.</p>
+        <ul>
+          <li>Architected ETL pipelines to crawl, deduplicate, and normalize internet-scale multi-modal datasets.</li>
+          <li>Processed 3M+ PDFs via OCR, layout parsing, and CV-based structured text extraction.</li>
+          <li>Synthesized large-scale SFT datasets using GPT-4, Gemini, Claude, and Qwen for Falcon-H alignment.</li>
+          <li>Unified data from 10+ agent platforms into training-ready multi-modal corpora with quality-scoring pipelines.</li>
+          <li>Built STEM-VQA evaluation pipelines covering charts, equations, and scientific plots.</li>
+          <li>Trained VLMs on GCP and AWS across distributed Slurm clusters, optimizing GPU utilization.</li>
         </ul>
+        <div class="tag-list">
+          <span class="tag">LLM Alignment</span><span class="tag">VLMs</span><span class="tag">OCR</span><span class="tag">ETL</span><span class="tag">STEM-VQA</span><span class="tag">GCP</span><span class="tag">AWS</span><span class="tag">Slurm</span>
+        </div>
       </div>
-      <div class = "row" style="margin-top: 50px; ">
-          <h1 style="padding-bottom: 50px;text-align:center">Research Experience</h1>
-          <p>Over the past two years I had the opportunity to mainly contribute to the following projects:</p>
-          <h3>Adversarial Attacks on Speech Recognition Systems for Mission Critical Applications</h3>
-          <p style="text-align: justify">From June 2021 to September 2021, I had the opportunity to work with Dr. Imran Razzak and Dr. Mohamed Reda Bouadjenek
-             in the context of the 2021 SIT Research Program Initialisation Grant lead by the CITECORE and D2L research centres. The project aimed to study, 
-             analyse, and develop an Automatic Speech Recognition system for mission critical applications, robust to adversarial attacks. Specifically, recent
-              advances in machine learning, natural language processing, and voice recognition technologies have allowed the development and deployment of 
-              speech-based conversational interfaces to interact with various systems and objects such as autonomous vehicles, personal assistants, and different
-               IoT objects. With the growth of machine learning, recent cyberattacks focus on fooling new visual and conversational interfaces and have shown their
-                vulnerability to adversarial samples. The fabricated pieces trick the deep learning networks into making wrong predictions. My main contributions
-                 and outcomes of my work consist of:
-            <ul>
-              <li style="text-align: justify">A survey paper I have written to analyze, contrast, and compare various techniques for Adversarial Attacks on Speech 
-                Recognition Systems for Mission Critical Applications. This paper also outlines the challenges and recommendations for adversarial attacks and 
-                defence in machine-critical applications. This paper has been submitted to Speech Communication - Elsevier 2022.</li>
-              <li style="text-align: justify">A prototype I have developed with my supervisors that uses the Connectionist Temporal Classification (CTC) loss, 
-                an algorithm used to train deep neural networks in speech recognition, handwriting recognition, and other sequence problems. This model has 
-                been published online by the Keras Team and is now part of the official Keras example library: 
-                <a href="https://keras.io/examples/audio/ctc_asr/" target="_blank">https://keras.io/examples/audio/ctc_asr/</a>.</li>
-              <li style="text-align: justify">I have participated and presented my findings during two workshops organized in the context of the 2021 SIT 
-                Research Program Initialisation Grant by the CITECORE and D2L research centres. The panel committee for the workshops involved Prof. Arkady 
-                Zaslavsky, Dr. Chetan Arora, and Senior Lecturer Kevin Lee, Dr. Imran Razzak, Dr. Mohamed Reda Bouadjenek, and Dr. Ali Hassani..</li>
-            </ul>
-        </p>
-        <h3>Industry Engagement and Demonstrators Grant</h3>
-        <p style="text-align: justify">
-          From November 2021 to March 2022, I worked on this project where I aimed to build a demonstration as a proof of concept to create a model 
-          to control a smart home using a voice-based interface in the context of the Industry Engagement and Demonstrators Grant (IEDG) 2021. Nowadays, 
-          the usage of IoT devices has become very popular. Its research gives rise to many innovative applications in healthcare, communication, and smart homes. 
-          Smart homes have been a hot research topic and attracted many researchers in recent years. Smart devices in smart homes such as temperature sensors and 
-          smart TVs send collected data to relational databases allowing developers to query them using different query languages such as Context Definition and 
-          Query Language (CDQL). However, CDQL requires understanding its formulas for updating and searching data content in the host databases. The aim of the 
-          project is to introduce a user interface named Speech-to-CDQL to allow users from different backgrounds to control a smart home using a voice-based 
-          interface directly. My main contributions and outcomes of my work consist of:
-
-          <ul>
-            <li style="text-align: justify">
-              The model which I have created has two components: a speech recognition system (Google speech recognition) and a text-2-CDQL system based 
-              on Encoder-Decoder RNN architectures. Three encoder-decoder architectures are implemented for the text-2-CDQL system: basic architecture, 
-              Bahdanau attention, and Luong attention.
-            </li>
-            <li style="text-align: justify">
-              I have used the Finite Automata approach to improve the result. The result shows that the accuracy and the Word Error Rate (WER) of the 
-              text-to-CDQL are 93% and 0.02%, respectively.
-            </li>
-            <li style="text-align: justify">
-              My thesis: <a href="papers/Ngoc_Thesis.pdf" download>Speech-to-CDQL: Context Definition and Query Language from Natural Language for Smart Home Environment.</a>
-            </li>
-          </ul>
-        </p>
-        <h3>
-          Multi-Resolution Shallow Neural Network for Diabetic Foot Ulcers Detection
-        </h3>
-        <p style="text-align: justify">
-          DFU2021 challenge Diabetes is one of those chronic diseases that affects other body parts including foot or limbs  ulceration, neuropathies, 
-          high blood pressure, nephropathy (kidney problem), vision problem. The Diabetic Foot Ulcer (DFU) is the most common disease among all diseases 
-          in diabetic patients. It is also known as Diabetic foot. DFUs are wounds that occur on the feet of diabetic people. We propose a Multi Resolution 
-          Multi Path Convolution Neural Network (MRMP-CNN) for identification of skin lesions. Our MRMP-CNN consists of several blocks which are concatenated 
-          hierarchically. The key contributions of this work are:
-          <ul>
-            <li>
-              Multiresolutional shallow convolutional neural network for automatic classification of foot diabetes, i.e., ischaemia and infection.
-            </li>
-            <li>
-              Experiments are performed in DFU2021 foot diabetes challenges and achieved state of the art performance.
-            </li>
-          </ul>
-        </p>
-        <h3>
-          STOIC2021 - COVID-19 AI Challenge
-        </h3>
-        <p style="text-align: justify">
-          From March 2021 to May 2022, I worked on this project where I aimed at predicting the severe outcome of COVID-19, based on the largest dataset of Computed 
-          Tomography (CT) images of COVID-19 suspects and patients collected to date. Participants will have access to data from the STOIC project, recently published 
-          in Radiology. The STOIC project collected CT images of 10,735 individuals suspected of being infected with SARS-COV-2 during the first wave of the pandemic 
-          in France, from March to April 2020. The focus of the challenge is the prediction of severe COVID-19, defined as intubation or death within one month from 
-          the acquisition of the CT scan (AUC, primary metric). COVID19 positivity will be assessed as a secondary metric in the leaderboard. The key contributions of 
-          this work are:
-
-          <ul>
-            <li>
-              I used Tensorflow to analyze 3D CT COVID-19 Lung Images as well as augment these images.
-            </li>
-            <li>
-              I used a 3D DenseNet to predict the severe outcome of COVID-19. My model was the 6th Prize Winner of the challenge.
-            </li>
-          </ul>
-        </p>
-      </div>
-      <div style="height: 40px; background-color:black; margin-top: 70px;"></div>
     </div>
-  </body>
+
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">VisRes Bench: Evaluating Visual Reasoning of VLMs</div>
+        <span class="research-period">2025 – 2026</span>
+      </div>
+      <div class="research-org">Technology Innovation Institute (TII) · CVPR 2026</div>
+      <div class="research-body">
+        <p>Designed and contributed to <strong>VisRes Bench</strong>, a benchmark for systematically evaluating the visual reasoning capabilities of vision-language models across diverse and challenging tasks.</p>
+        <ul>
+          <li>Developed evaluation protocols and dataset curation pipelines targeting multi-step visual reasoning.</li>
+          <li>Benchmarked a wide range of state-of-the-art VLMs, revealing systematic failure modes.</li>
+          <li>Accepted at <strong>CVPR 2026</strong> (Brigitta T., Dahou Y., Huynh N. D., et al.).</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">CVPR 2026</span><span class="tag">VLM Benchmark</span><span class="tag">Visual Reasoning</span><span class="tag">Evaluation</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">Vision-Language Models Can't See the Obvious</div>
+        <span class="research-period">Apr 2024 – Jan 2025</span>
+      </div>
+      <div class="research-org">Technology Innovation Institute (TII) · ICCV 2025</div>
+      <div class="research-body">
+        <p>Investigated fundamental failure modes of VLMs on visually obvious reasoning tasks, contributing to a co-authored paper accepted at <strong>ICCV 2025</strong>.</p>
+        <ul>
+          <li>Designed probing tasks that expose systematic blind spots in leading VLMs.</li>
+          <li>Developed and integrated ASR, VQA, OCR, and LLM inference components into unified end-to-end evaluation pipelines.</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">ICCV 2025</span><span class="tag">VLM Evaluation</span><span class="tag">ASR</span><span class="tag">Multi-modal Reasoning</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card">
+      <div class="research-header">
+        <div class="research-title">SVLA: A Unified Speech-Vision-Language Assistant</div>
+        <span class="research-period">Apr 2024 – Jan 2025</span>
+      </div>
+      <div class="research-org">Technology Innovation Institute (TII) · arXiv:2503.24164</div>
+      <div class="research-body">
+        <p>Designed and built <strong>SVLA</strong>, a unified assistant capable of jointly processing speech, images, and text in a single end-to-end framework.</p>
+        <ul>
+          <li>Integrated ASR, VQA, OCR, and LLM inference components into a cohesive multi-modal pipeline.</li>
+          <li>Enabled the model to take audio and visual inputs simultaneously and generate coherent language responses.</li>
+          <li>Published as a preprint on arXiv (arXiv:2503.24164, 2025).</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">Speech</span><span class="tag">Vision</span><span class="tag">Language</span><span class="tag">ASR</span><span class="tag">Multi-modal</span><span class="tag">arXiv</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card warm">
+      <div class="research-header">
+        <div class="research-title">Visual Question Answering Research</div>
+        <span class="research-period">Mar 2022 – Oct 2022</span>
+      </div>
+      <div class="research-org">Deakin University · Research Assistant</div>
+      <div class="research-body">
+        <p>Competitive and academic VQA research, achieving top global rankings and publishing benchmark datasets and survey papers.</p>
+        <ul>
+          <li>Ranked <strong>Top 9 worldwide</strong> in the Toloka VQA Challenge (WSDM Cup 2023).</li>
+          <li>Achieved <strong>Top 7 globally</strong> in the STOIC2021 COVID Detection Challenge (3D DenseNet on CT scans).</li>
+          <li>Published SimpsonsVQA (arXiv:2410.22648) — a domain-specific VQA dataset and benchmark.</li>
+          <li>Authored a comprehensive VQA survey (arXiv:2501.03939).</li>
+          <li>Founded a university-wide AI competition, growing the campus ML community.</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">VQA</span><span class="tag">Computer Vision</span><span class="tag">3D CNN</span><span class="tag">Benchmarking</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card warm">
+      <div class="research-header">
+        <div class="research-title">Speech-to-CDQL: Smart Home Voice Control</div>
+        <span class="research-period">Nov 2021 – Mar 2022</span>
+      </div>
+      <div class="research-org">Deakin University · MSc Thesis Research</div>
+      <div class="research-body">
+        <p>Designed a voice-based interface for smart home control using a speech recognition system combined with a text-to-CDQL encoder-decoder RNN, achieving 93% accuracy and 0.02% WER.</p>
+        <ul>
+          <li>Implemented three encoder-decoder architectures: basic, Bahdanau attention, and Luong attention.</li>
+          <li>Applied Finite Automata to improve query generation accuracy.</li>
+          <li>Published as an IEEE MDM Best Demo Paper (Jarvis system).</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">ASR</span><span class="tag">Seq2Seq</span><span class="tag">IoT</span><span class="tag">IEEE MDM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="research-card warm">
+      <div class="research-header">
+        <div class="research-title">Adversarial Attacks on Speech Recognition</div>
+        <span class="research-period">Jun 2021 – Sep 2021</span>
+      </div>
+      <div class="research-org">Deakin University · SIT Research Program</div>
+      <div class="research-body">
+        <p>Studied adversarial robustness of ASR systems for mission-critical applications (autonomous vehicles, IoT, personal assistants). Key outputs:</p>
+        <ul>
+          <li>Authored a survey on adversarial attacks on speech recognition (arXiv:2202.10594).</li>
+          <li>Developed a CTC-based ASR prototype published in the official <a href="https://keras.io/examples/audio/ctc_asr/" target="_blank" style="color: var(--accent);">Keras example library</a>.</li>
+        </ul>
+        <div class="tag-list">
+          <span class="tag">ASR</span><span class="tag">Adversarial Robustness</span><span class="tag">CTC</span><span class="tag">Keras</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ngoc Dung Huynh · <a href="mailto:dunghuynhparker@gmail.com">dunghuynhparker@gmail.com</a></p>
+</footer>
+
+</body>
 </html>

@@ -1,130 +1,662 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ngoc Dung Huynh — ML Researcher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
-        .ul1 {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            }
-
-        .li1 {
-        float: left;
-        }
-
-        .li1a a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
+      :root {
+        --ink: #0f1117;
+        --ink-soft: #3a3d4a;
+        --accent: #1a56db;
+        --accent-warm: #c2410c;
+        --surface: #f8f7f4;
+        --card: #ffffff;
+        --border: #e4e1da;
+        --tag-bg: #eef2ff;
+        --tag-color: #3730a3;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--surface);
+        color: var(--ink);
+        font-size: 16px;
+        line-height: 1.7;
+      }
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(248, 247, 244, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0 clamp(1rem, 5vw, 4rem);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 60px;
+      }
+      .nav-logo {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.1rem;
+        color: var(--ink);
         text-decoration: none;
+      }
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        color: var(--ink-soft);
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding-bottom: 2px;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+      .nav-links a:hover,
+      .nav-links a.active {
+        color: var(--accent);
+        border-bottom-color: var(--accent);
+      }
+      .hero {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 5vw, 4rem) 4rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 3rem;
+        align-items: start;
+      }
+      .hero-eyebrow {
+        font-family: "DM Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 0.75rem;
+      }
+      h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2.5rem, 5vw, 3.75rem);
+        line-height: 1.1;
+        margin-bottom: 1rem;
+      }
+      .hero-subtitle {
+        font-size: 1.05rem;
+        color: var(--ink-soft);
+        margin-bottom: 1.5rem;
+        max-width: 560px;
+      }
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+      }
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: var(--tag-bg);
+        color: var(--tag-color);
+        border-radius: 100px;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.78rem;
+        font-weight: 500;
+      }
+      .hero-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.6rem 1.25rem;
+        border-radius: 8px;
+        font-size: 0.875rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+      .btn-primary {
+        background: var(--accent);
+        color: white;
+      }
+      .btn-primary:hover {
+        background: #1447c7;
+      }
+      .btn-outline {
+        border: 1.5px solid var(--border);
+        color: var(--ink-soft);
+        background: var(--card);
+      }
+      .btn-outline:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .hero-photo {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--border);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      }
+      .stats-bar {
+        background: var(--ink);
+        color: white;
+        padding: 2rem clamp(1.5rem, 5vw, 4rem);
+      }
+      .stats-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 2rem;
+      }
+      .stat {
+        text-align: center;
+      }
+      .stat-num {
+        display: block;
+        font-family: "DM Serif Display", serif;
+        font-size: 2.25rem;
+        color: white;
+      }
+      .stat-label {
+        font-size: 0.8rem;
+        color: #9ca3af;
+        margin-top: 0.2rem;
+      }
+      section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 4rem clamp(1.5rem, 5vw, 4rem);
+      }
+      .section-label {
+        font-family: "DM Mono", monospace;
+        font-size: 0.7rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent-warm);
+        margin-bottom: 0.5rem;
+      }
+      h2 {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(1.6rem, 3vw, 2.2rem);
+        margin-bottom: 2rem;
+      }
+      .divider {
+        height: 1px;
+        background: var(--border);
+        margin: 0 clamp(1.5rem, 5vw, 4rem);
+      }
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.25rem;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.5rem;
+        transition:
+          box-shadow 0.2s,
+          transform 0.2s;
+      }
+      .card:hover {
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+        transform: translateY(-2px);
+      }
+      .card-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .card h3 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+      .card p {
+        font-size: 0.875rem;
+        color: var(--ink-soft);
+      }
+      .exp-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+      }
+      .exp-item {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 1.75rem;
+        border-left: 3px solid var(--accent);
+      }
+      .exp-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 0.75rem;
+      }
+      .exp-role {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+      .exp-org {
+        color: var(--accent);
+        font-weight: 500;
+        font-size: 0.9rem;
+      }
+      .exp-period {
+        font-family: "DM Mono", monospace;
+        font-size: 0.75rem;
+        color: var(--ink-soft);
+        background: var(--tag-bg);
+        padding: 0.2rem 0.6rem;
+        border-radius: 100px;
+        white-space: nowrap;
+      }
+      .exp-item ul {
+        padding-left: 1.2rem;
+        color: var(--ink-soft);
+        font-size: 0.875rem;
+      }
+      .exp-item li {
+        margin-bottom: 0.4rem;
+      }
+      footer {
+        background: var(--ink);
+        color: #9ca3af;
+        text-align: center;
+        padding: 2rem;
+        font-size: 0.875rem;
+      }
+      footer a {
+        color: #c7d2fe;
+        text-decoration: none;
+      }
+      @media (max-width: 640px) {
+        .hero {
+          grid-template-columns: 1fr;
         }
-
-        .li1ah a:hover {
-        background-color: #111;
+        .hero-photo {
+          width: 110px;
+          height: 110px;
+          order: -1;
         }
-        .img-circle {
-            border-radius: 50%;
+        .nav-links {
+          gap: 1rem;
         }
-        li.underline {
-          padding-bottom: 20px;
-          border-bottom:1px solid silver;
+        .nav-links a {
+          font-size: 0.78rem;
         }
-        ul.no-bullets {
-          list-style-type: none;
-        }
-        
+      }
     </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ngoc Dung Huynh</title>
   </head>
   <body>
-    <div class = "container">
-      <div class = "masthead">
-        <div class = "row">
-            <div class = "col-sm-9" style = "padding-top: 60px">
-                <h2>Ngoc Dung Huynh</h2>
-                <h5>BSc. in Mathematics, MSc. in Data Science</h5>
-                <h5>PhD Candidate in Computer Science</h5>
-            </div>
-            <div class="col-sm-3">
-                <div style="text-align:center">
-                    <img src="./images/deakinlogo.jpg" height="200" alt="Deakin logo" />
-                </div>
-            </div>
-        </div>
-        <ul class = "nav nav-justified ul1">
-            <li class="li1 li1a li1ah"><a  href="index.html"><b>Home</b></a></li>
-            <li class="li1 li1a li1ah"><a class="active" href="repository.html">Respository</a></li>
-            <li class="li1 li1a li1ah"><a href="research.html">Research</a></li>
-            <li class="li1 li1a li1ah "><a href="publication.html">Publications & Awards</a></li>
-            <li class="li1 li1a li1ah"><a href="cv.html">CV</a></li>
-        </ul>
-      </div>
-      <div class = "row" style="margin-top: 50px; text-align:center">
-          <h1 style="padding-bottom: 50px;">About Me</h1>
-          <div style="margin-bottom:30px"><img src="images/parker.png" width="200"  class="img-circle" alt="ID Photo"/></div>
-          <h3>Contact</h3>
-          <i class="fa fa-map-marker" style="font-size:16px"> Geelong, Australia</i>
-          <div><i class="fa fa-envelope" aria-hidden="true"> dunghuynh110496@gmai.com</i></div>
-          <div><i class="fa fa-envelope" aria-hidden="true"> ndhuynh@deakin.edu.au</i></div>
-          <div><i class="fa fa-mobile" aria-hidden="true"> 0412697643</i></div>
-          <div style="padding-top: 10px;">
-            <a href="https://github.com/parkerhuynh"><i class="fa fa-github" style="font-size:24px">    |    </i></a>
-            <a href="https://www.linkedin.com/in/parkerhuynh/"><i class="fa fa-linkedin" style="font-size:24px"></i></a>
-          </div>
-          <h3>Short biography</h3>
-          <p style="text-align:justify; padding-left: 10%;padding-right: 10%;padding-top: 20px;">I graduated with a BSc as a mathematical teacher at Hue University in 2018 and taught for one year 
-            at a high school in Vietnam from 2018 to 2019. Then realizing that data science was growing rapidly, I pursued a master's in Data 
-            Science at Deakin University and graduated in March 2022 with a GPA of 3.8. My research covers Machine Learning and Deep Learning,
-            focusing on Natural Language Processing and image analysis to solve real-world problems related to mission-critical applications,
-            health informatics, math word problems, and the Internet of Things.For my working experience, I was a part-time online intern at
-            Stealth Startup from August 2020 to November 2021, focusing on solving an extensive range of real-world problems. In addition, I 
-            was a Research Assistant at Deakin University from June 2021 to May 2022
-          </p>
-          <h3 style="padding-top: 20px;;">Skills</h3>
-          <div style="background-color: #f0f5f5; margin: 15px; ;">
-            <h4 style="padding-top: 15px;margin-bottom:60px">Proficent</h4>
-            <div class="row" style="height: 150px; ">
-              <div class="col-sm-2" style=" height: 100%;"><img src="images/python.png" style="height: 50%"></div>
-              <div class="col-sm-2" style="height: 100%"><img src="images/jupyter.png" style="height: 50%;"></div>
-              <div class="col-sm-2" style="height: 100%"><img src="images/tensorflow.png" style="height: 50%;"></div>
-              <div class="col-sm-2" style="height: 100%"><img src="images/flask.png" style="height: 50%;"></div>
-              <div class="col-sm-2" style="height: 100%"><img src="images/r.png" style="height: 50%;"></div>
-              <div class="col-sm-2" style="height: 100%"><img src="images/selenium.png" style="height: 50%;"></div>
-            </div>
-            <div class="row" style="height: 150px;margin-top:30px">
-              <div class="col-sm-2 " style="height: 100%"><img src="images/dialogflow logo.png" style="height: 90%"></div>
-              <div class="col-sm-2 " style="height: 100%"><img src="images/plotly.png" style="height: 60%"></div>
-              <div class="col-sm-2 " style="height: 100%"><img src="images/tableau.png" style="height: 50%"></div>
-              <div class="col-sm-2 " style="height: 100%"><img src="images/react.png" style="height:55%"></div>
-              <div class="col-sm-2 " style="height: 100%"><img src="images/numpy.png" style="height:60%"></div>
-              <div class="col-sm-2 " style="height: 100%"><img src="images/pandas.png" style="height:75%"></div>
-            </div>
-            <h4 style="padding-top: 15px;margin-bottom:60px">Familiar</h4>
-            <div class="row" style="height: 150px;margin-top:30px">
-              <div class="col-sm-3" style="height: 100%"><img src="images/pytorch.png" style="height: 80%"></div>
-              <div class="col-sm-3" style="height: 100%"><img src="images/html.png" style="height: 50%"></div>
-              <div class="col-sm-3" style="height: 100%"><img src="images/JavaScript-logo.png" style="height:55%"></div>
-              <div class="col-sm-3" style="height: 100%"><img src="images/sql.png" style="height:60%"></div>
-            </div>
-            
-          </div>
-          
+    <nav>
+      <a class="nav-logo" href="index.html">NDH</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="research.html">Research</a></li>
+        <li><a href="publication.html">Publications</a></li>
+        <li><a href="repository.html">Projects</a></li>
+        <li><a href="cv.html">CV</a></li>
+      </ul>
+    </nav>
 
+    <div class="hero">
+      <div class="hero-text">
+        <p class="hero-eyebrow">
+          PhD Researcher · ML Engineer · Multi-modal AI Specialist
+        </p>
+        <h1>Ngoc Dung<br />Huynh</h1>
+        <p class="hero-subtitle">
+          Building large-scale vision-language systems and internet-scale data
+          pipelines. First-author publications at <strong>ICCV 2025</strong> and
+          <strong>CVPR 2026</strong>. Engineering consultant at
+          <strong>TII Abu Dhabi</strong> and PhD researcher at
+          <strong>Deakin University</strong>.
+        </p>
+        <div class="hero-badges">
+          <span class="badge"
+            ><i class="fas fa-map-marker-alt"></i> Melbourne, VIC,
+            Australia</span
+          >
+          <span class="badge"
+            ><i class="fas fa-trophy"></i> Top 9 Worldwide — Toloka VQA</span
+          >
+          <span class="badge"
+            ><i class="fas fa-trophy"></i> Top 7 Globally — COVID
+            Detection</span
+          >
+        </div>
+        <div class="hero-links">
+          <a href="mailto:dunghuynhparker@gmail.com" class="btn btn-primary"
+            ><i class="fas fa-envelope"></i> Email me</a
+          >
+          <a
+            href="https://github.com/dunghuynhandy"
+            target="_blank"
+            class="btn btn-outline"
+            ><i class="fab fa-github"></i> GitHub</a
+          >
+          <a
+            href="https://www.linkedin.com/in/dunghuynhandy/"
+            target="_blank"
+            class="btn btn-outline"
+            ><i class="fab fa-linkedin"></i> LinkedIn</a
+          >
+          <a href="Ngoc_CV__PhD_.pdf" class="btn btn-outline"
+            ><i class="fas fa-file-pdf"></i> Download CV</a
+          >
+        </div>
       </div>
-      <div style="height: 40px; background-color:black; margin-top: 70px;"></div>
+      <img src="images/parker.png" alt="Ngoc Dung Huynh" class="hero-photo" />
     </div>
+
+    <div class="stats-bar">
+      <div class="stats-inner">
+        <div class="stat">
+          <span class="stat-num">4+</span>
+          <div class="stat-label">Years Experience</div>
+        </div>
+        <div class="stat">
+          <span class="stat-num">8+</span>
+          <div class="stat-label">Publications</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <section>
+      <p class="section-label">About</p>
+      <h2>Who I am</h2>
+      <p style="max-width: 720px; color: var(--ink-soft); font-size: 1rem">
+        I am a PhD researcher at Deakin University and an Engineering Consultant
+        at the Technology Innovation Institute (TII, UAE). I specialise in
+        multi-modal AI — the intersection of vision, language, and speech. My
+        work spans architecting internet-scale data pipelines, training large
+        vision-language models on GCP/AWS, building VQA benchmarks, and
+        publishing at top-tier venues including ICCV and CVPR. I hold a BSc in
+        Mathematics and an MSc in Data Science (GPA 86%) from Deakin University.
+      </p>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <p class="section-label">Core Competencies</p>
+      <h2>What I work with</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon">🤖</div>
+          <h3>ML / AI</h3>
+          <p>
+            Vision-Language Models (VLMs), LLMs, Visual Question Answering,
+            Multi-modal Reasoning, Speech-Vision-Language
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚙️</div>
+          <h3>Frameworks</h3>
+          <p>
+            PyTorch, TensorFlow, Keras, HuggingFace Transformers, Weights &
+            Biases
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🗄️</div>
+          <h3>Data Engineering</h3>
+          <p>
+            OCR Pipelines, ETL, Web Crawling, Deduplication, LLM Filtering, SFT
+            Data Generation, Agent-Based Pipelines
+          </p>
+        </div>
+        <div class="card">
+          <div class="card-icon">☁️</div>
+          <h3>Infrastructure</h3>
+          <p>AWS, GCP, Docker, Linux, Slurm, Flask, React.js, Elasticsearch</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">💻</div>
+          <h3>Programming</h3>
+          <p>Python, JavaScript, SQL, R, C++</p>
+        </div>
+        <div class="card">
+          <div class="card-icon">🎯</div>
+          <h3>Specialties</h3>
+          <p>
+            Annotation Systems, STEM-VQA, Distributed Training, Benchmark
+            Evaluation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <p class="section-label">Experience</p>
+      <h2>Where I've worked</h2>
+      <div class="exp-list">
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">
+                Engineering Consultant — Multi-modal AI & Data
+              </div>
+              <div class="exp-org">
+                Technology Innovation Institute (TII) · Abu Dhabi, UAE (Remote)
+              </div>
+            </div>
+            <span class="exp-period">Jan 2025 – Present</span>
+          </div>
+          <ul>
+            <li>
+              Architected production-grade ETL pipelines to crawl, deduplicate
+              and normalize internet-scale multi-modal datasets supporting
+              Falcon-H training.
+            </li>
+            <li>
+              Processed 3M+ PDFs via OCR, layout parsing, and CV-based
+              structured text extraction with multi-stage cleaning and
+              deduplication.
+            </li>
+            <li>
+              Synthesized large-scale SFT datasets using GPT-4, Gemini, Claude,
+              and Qwen to accelerate Falcon-H model alignment.
+            </li>
+            <li>
+              Unified data from 10+ agent platforms into multi-modal corpora
+              with content filtering and quality-scoring pipelines.
+            </li>
+            <li>
+              Engineered a React-based annotation platform for segmentation and
+              bounding-box labeling.
+            </li>
+            <li>
+              Trained large-scale VLMs on GCP and AWS across distributed Slurm
+              clusters.
+            </li>
+            <li>
+              Built end-to-end VQA training and evaluation pipelines for STEM,
+              charts, equations, and scientific plots.
+            </li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Research Intern — Multi-modal AI</div>
+              <div class="exp-org">
+                Technology Innovation Institute (TII) · Abu Dhabi, UAE
+              </div>
+            </div>
+            <span class="exp-period">Apr 2024 – Jan 2025</span>
+          </div>
+          <ul>
+            <li>
+              Led research on multi-modal reasoning across speech, vision, and
+              language modalities — contributing to ICCV 2025.
+            </li>
+            <li>
+              Developed and integrated ASR, VQA, OCR, and LLM inference
+              components into unified end-to-end pipelines.
+            </li>
+            <li>
+              Co-authored ICCV 2025 paper and contributed to multiple arXiv
+              publications on VLM evaluation.
+            </li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">
+                Research Assistant — Visual Question Answering
+              </div>
+              <div class="exp-org">
+                Deakin University · Melbourne, Australia
+              </div>
+            </div>
+            <span class="exp-period">Mar 2022 – Oct 2022</span>
+          </div>
+          <ul>
+            <li>
+              Ranked <strong>Top 9 worldwide</strong> in the Toloka VQA
+              Challenge (WSDM Cup 2023).
+            </li>
+            <li>
+              Achieved <strong>Top 7 globally</strong> in the COVID Detection
+              Challenge using 3D CT medical imaging.
+            </li>
+            <li>
+              Founded a university-wide AI competition at Deakin to grow the
+              campus ML community.
+            </li>
+          </ul>
+        </div>
+        <div class="exp-item">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">Software Engineer (Part-time)</div>
+              <div class="exp-org">Stealth Startup · Singapore (Remote)</div>
+            </div>
+            <span class="exp-period">Aug 2020 – Nov 2021</span>
+          </div>
+          <ul>
+            <li>
+              Designed and delivered a full-stack multi-user annotation platform
+              (Flask + React + Elasticsearch) with RESTful APIs.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section>
+      <p class="section-label">Education</p>
+      <h2>Academic background</h2>
+      <div class="exp-list">
+        <div class="exp-item" style="border-left-color: var(--accent-warm)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">PhD in Computer Science</div>
+              <div class="exp-org" style="color: var(--accent-warm)">
+                Deakin University · Melbourne, Australia
+              </div>
+              <div
+                style="
+                  font-size: 0.85rem;
+                  color: var(--ink-soft);
+                  margin-top: 0.3rem;
+                  font-style: italic;
+                "
+              >
+                Thesis: Designing Scalable and Interpretable
+                Vision–Language–Speech Systems for Generalised Multi-modal
+                Reasoning
+              </div>
+            </div>
+            <span class="exp-period">Oct 2022 – Present</span>
+          </div>
+        </div>
+        <div class="exp-item" style="border-left-color: var(--accent-warm)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">MSc in Data Science — GPA: 86%</div>
+              <div class="exp-org" style="color: var(--accent-warm)">
+                Deakin University · Melbourne, Australia
+              </div>
+              <div
+                style="
+                  font-size: 0.85rem;
+                  color: var(--ink-soft);
+                  margin-top: 0.3rem;
+                  font-style: italic;
+                "
+              >
+                Thesis: Speech-to-CDQL — Context Definition and Query Language
+                from Natural Language for Smart Home
+              </div>
+            </div>
+            <span class="exp-period">Mar 2020 – Mar 2022</span>
+          </div>
+        </div>
+        <div class="exp-item" style="border-left-color: var(--accent-warm)">
+          <div class="exp-header">
+            <div>
+              <div class="exp-role">BSc in Mathematics</div>
+              <div class="exp-org" style="color: var(--accent-warm)">
+                University of Education Hue · Vietnam
+              </div>
+            </div>
+            <span class="exp-period">Sep 2014 – Sep 2018</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>
+        © 2025 Ngoc Dung Huynh ·
+        <a href="mailto:dunghuynhparker@gmail.com">dunghuynhparker@gmail.com</a>
+        · +61 412 697 643
+      </p>
+    </footer>
   </body>
 </html>

@@ -1,83 +1,70 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
-        .ul1 {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV — Ngoc Dung Huynh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --ink: #0f1117; --ink-soft: #3a3d4a; --accent: #1a56db; --accent-warm: #c2410c; --surface: #f8f7f4; --card: #ffffff; --border: #e4e1da; --tag-bg: #eef2ff; --tag-color: #3730a3; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); font-size: 16px; line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(248,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.875rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .page-hero { max-width: 1100px; margin: 0 auto; padding: 4rem clamp(1.5rem,5vw,4rem) 2rem; display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.5rem; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 0.75rem; }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.25rem; border-radius: 8px; font-size: 0.875rem; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+    .btn-primary { background: var(--accent); color: white; }
+    .btn-primary:hover { background: #1447c7; }
+    section { max-width: 1100px; margin: 0 auto; padding: 2rem clamp(1.5rem,5vw,4rem); }
+    .divider { height: 1px; background: var(--border); margin: 0 clamp(1.5rem,5vw,4rem); }
+    h2 { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 1.25rem; }
+    .embed-wrap { background: var(--card); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+    iframe { display: block; width: 100%; border: none; }
+    footer { background: var(--ink); color: #9ca3af; text-align: center; padding: 2rem; font-size: 0.875rem; margin-top: 4rem; }
+    footer a { color: #c7d2fe; text-decoration: none; }
+    @media (max-width: 640px) { .nav-links { gap: 1rem; } .nav-links a { font-size: 0.78rem; } }
+  </style>
+</head>
+<body>
 
-        .li1 {
-        float: left;
-        }
+<nav>
+  <a class="nav-logo" href="index.html">NDH</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publication.html">Publications</a></li>
+    <li><a href="repository.html">Projects</a></li>
+    <li><a href="cv.html" class="active">CV</a></li>
+  </ul>
+</nav>
 
-        .li1a a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
+<div class="page-hero">
+  <div>
+    <p class="section-label">Curriculum Vitae</p>
+    <h1>Ngoc Dung Huynh</h1>
+    <p style="color: var(--ink-soft);">PhD Researcher · ML Engineer · Multi-modal AI Specialist</p>
+  </div>
+  <a href="Ngoc_CV__PhD_.pdf" download class="btn btn-primary"><i class="fas fa-download"></i> Download PDF</a>
+</div>
 
-        .li1ah a:hover {
-        background-color: #111;
-        }
-        .img-circle {
-            border-radius: 50%;
-        }
-        li.underline {
-          padding-bottom: 20px;
-          border-bottom:1px solid silver;
-        }
-        ul.no-bullets {
-          list-style-type: none;
-        }
-        
-        
-    </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<section>
+  <div class="embed-wrap">
+    <iframe src="Ngoc_CV__PhD_.pdf" height="1000" title="Ngoc Dung Huynh CV"></iframe>
+  </div>
+  <p style="margin-top: 1rem; font-size: 0.85rem; color: var(--ink-soft); text-align: center;">
+    If the PDF doesn't load, <a href="Ngoc_CV__PhD_.pdf" download style="color: var(--accent);">download it directly</a>.
+  </p>
+</section>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ngoc Dung Huynh</title>
-  </head>
-  <body>
-    <div class = "container">
-      <div class = "masthead">
-        <div class = "row">
-            <div class = "col-sm-9" style = "padding-top: 60px">
-                <h2>Ngoc Dung Huynh</h2>
-                <h5>BSc. in Mathematics, MSc. in Data Science</h5>
-                <h5>PhD Candidate in Computer Science</h5>
-            </div>
-            <div class="col-sm-3">
-                <div style="text-align:center">
-                    <img src="./images/deakinlogo.jpg" height="200" alt="Deakin logo" />
-                </div>
-            </div>
-        </div>
-        <ul class = "nav nav-justified ul1">
-            <li class="li1 li1a li1ah"><a  href="index.html">Home</a></li>
-            <li class="li1 li1a li1ah"><a class="active" href="repository.html">Respository</a></li>
-            <li class="li1 li1a li1ah"><a href="research.html">Research</a></li>
-            <li class="li1 li1a li1ah "><a href="publication.html">Publications & Awards</a></li>
-            <li class="li1 li1a li1ah"><a href="#contact"><b>CV</b></a></li>
-        </ul>
-      </div>
-      <div class = "row" style="margin-top: 50px; ">
-          <h1 style="padding-bottom: 50px;text-align:center">Curriculum vitae</h1>
-          <iframe src="Ngoc_CV__PhD_.pdf" width="100%" height="1000px"></iframe>
-      </div>
-    </div>
-    <div style="height: 40px; background-color:black; margin-top: 70px;"></div>
-  </body>
+<footer>
+  <p>© 2025 Ngoc Dung Huynh · <a href="mailto:dunghuynhparker@gmail.com">dunghuynhparker@gmail.com</a></p>
+</footer>
+
+</body>
 </html>

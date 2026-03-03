@@ -1,149 +1,156 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <style>
-        .ul1 {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-            }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Ngoc Dung Huynh</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root { --ink: #0f1117; --ink-soft: #3a3d4a; --accent: #1a56db; --accent-warm: #c2410c; --surface: #f8f7f4; --card: #ffffff; --border: #e4e1da; --tag-bg: #eef2ff; --tag-color: #3730a3; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--surface); color: var(--ink); font-size: 16px; line-height: 1.7; }
+    nav { position: sticky; top: 0; z-index: 100; background: rgba(248,247,244,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 clamp(1rem,5vw,4rem); display: flex; align-items: center; justify-content: space-between; height: 60px; }
+    .nav-logo { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: var(--ink); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { text-decoration: none; color: var(--ink-soft); font-size: 0.875rem; font-weight: 500; padding-bottom: 2px; border-bottom: 2px solid transparent; transition: color 0.2s, border-color 0.2s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); border-bottom-color: var(--accent); }
+    .page-hero { max-width: 1100px; margin: 0 auto; padding: 4rem clamp(1.5rem,5vw,4rem) 2rem; }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent-warm); margin-bottom: 0.5rem; }
+    h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+    section { max-width: 1100px; margin: 0 auto; padding: 2rem clamp(1.5rem,5vw,4rem) 4rem; }
+    .proj-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.25rem; }
+    .proj-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; transition: box-shadow 0.2s, transform 0.2s; }
+    .proj-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .proj-card.featured { border-top: 3px solid var(--accent); }
+    .proj-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.75rem; }
+    .proj-title { font-weight: 700; font-size: 0.95rem; }
+    .proj-title a { color: var(--ink); text-decoration: none; }
+    .proj-title a:hover { color: var(--accent); }
+    .proj-badge { font-size: 0.72rem; font-weight: 600; background: var(--accent); color: white; padding: 0.15rem 0.5rem; border-radius: 4px; white-space: nowrap; }
+    .proj-badge.warm { background: var(--accent-warm); }
+    .proj-desc { font-size: 0.85rem; color: var(--ink-soft); flex: 1; margin-bottom: 1rem; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: auto; }
+    .tag { background: var(--tag-bg); color: var(--tag-color); border-radius: 5px; padding: 0.15rem 0.55rem; font-size: 0.75rem; font-weight: 500; }
+    .proj-link { display: inline-flex; align-items: center; gap: 0.3rem; margin-top: 1rem; font-size: 0.8rem; color: var(--accent); text-decoration: none; font-weight: 500; }
+    .proj-link:hover { text-decoration: underline; }
+    footer { background: var(--ink); color: #9ca3af; text-align: center; padding: 2rem; font-size: 0.875rem; }
+    footer a { color: #c7d2fe; text-decoration: none; }
+    @media (max-width: 640px) { .nav-links { gap: 1rem; } .nav-links a { font-size: 0.78rem; } }
+  </style>
+</head>
+<body>
 
-        .li1 {
-        float: left;
-        }
+<nav>
+  <a class="nav-logo" href="index.html">NDH</a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="publication.html">Publications</a></li>
+    <li><a href="repository.html" class="active">Projects</a></li>
+    <li><a href="cv.html">CV</a></li>
+  </ul>
+</nav>
 
-        .li1a a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        }
+<div class="page-hero">
+  <p class="section-label">Portfolio</p>
+  <h1>Projects & Repositories</h1>
+  <p style="color: var(--ink-soft); max-width: 600px;">A selection of open-source projects, competition solutions, and research implementations.</p>
+</div>
 
-        .li1ah a:hover {
-        background-color: #111;
-        }
-        .img-circle {
-            border-radius: 50%;
-        }
-        li.underline {
-          padding-top: 20px;
-          padding-bottom: 20px;
-          border-bottom:1px solid silver;
-        }
-        ul.no-bullets {
-          list-style-type: none;
-        }
-        
-    </style>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<section>
+  <div class="proj-grid">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Ngoc Dung Huynh</title>
-  </head>
-  <body>
-    <div class = "container">
-      <div class = "masthead">
-        <div class = "row">
-            <div class = "col-sm-9" style = "padding-top: 60px">
-                <h2>Ngoc Dung Huynh</h2>
-                <h5>BSc. in Mathematics, MSc. in Data Science</h5>
-                <h5>PhD Candidate in Computer Science</h5>
-                 
-            </div>
-            <div class="col-sm-3">
-                <div style="text-align:center">
-                    <img src="./images/deakinlogo.jpg" height="200" alt="Deakin logo" />
-                </div>
-            </div>
-        </div>
-        <ul class = "nav nav-justified ul1">
-            <li class="li1 li1a li1ah"><a  href="index.html">Home</a></li>
-            <li class="li1 li1a li1ah"><a class="active" href="repository.html"><b>Respository</b></a></li>
-            <li class="li1 li1a li1ah"><a href="research.html">Research</a></li>
-            <li class="li1 li1a li1ah "><a href="publication.html">Publications & Awards</a></li>
-            <li class="li1 li1a li1ah"><a href="cv.html">CV</a></li>
-        </ul>
+    <div class="proj-card featured">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/STOIC-Challenge-2021" target="_blank">STOIC2021 — COVID-19 AI Challenge</a></div>
+        <span class="proj-badge warm">Top 7 Global</span>
       </div>
-      <div class = "row" style="margin-top: 50px; ">
-          <h1 style="padding-bottom: 50px;text-align:center">My Projects</h1>
-          <ul class="no-bullets">
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/HUMS2023" title="HUMS2023" target="_blank"><h3 style="color: Black">HUMS2023 <img src="images\new_icon.png" width="30px"></h3> </a>
-              <p>This test was designed to explore the phenomenon of fatigue cracking in thin-rim helicopter planet gears where the gear body incorporates the planet bearing
-                 outer raceway and the crack initiates at or near the raceway surface and propagates through the gear body. This type of fault is challenging to detect reliably,
-                  and it can lead to the catastrophic failure of the main rotor gearbox..</p>
-              <p>Source: <a href="https://humsconference.com.au/index2.html" target="_blank"> 13th Defence Science and Technology International Conference on HUMS2023</a> </p>
-              <span>Skills: <i>Python</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/speech_image" title="speech_image" target="_blank"><h3 style="color: Black">Speech-To-Image <img src="images\new_icon.png" width="30px"></h3> </a>
-              <p><a href="https://openai.com/blog/dall-e/" target="_blank">DALL-E</a>  (stylized as DALL·E) is an artificial intelligence program developed by OpenAI that creates digital images from textual descriptions.
-              This project aims to integrate DALL-E into a UI based voice. This work allows people to create a image based on their description orally.</p>
-              <span>Skills: <i>Python, React, HTML, Flask </i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/STOIC-Challenge-2021" title="STOIC2021" target="_blank"><h3 style="color: Black">STOIC2021 - COVID-19 AI Challenge</h3></a>
-              <p>This project aimed at predicting the severe outcome of COVID-19, based on the largest dataset of Computed Tomography (CT) images of COVID-19 suspects and patients collected to date. 
-                Participants will have access to data from the STOIC project, recently published in Radiology.</p>
-              <p>Source:<a href="https://stoic2021.grand-challenge.org/">STOIC2021 - COVID-19 AI Challenge</a></p>
-              <p>Note: <i>6st</i> Prize Winner of the challenge.</p> 
-              <span>Skills: <i>Python, 3D Image Classification, Tensorflow, Deep Learning, 3D Data Augmentation, Docker</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/IEDG" title="IEDG" target="_blank"><h3 style="color: Black">Industry Engagement and Demonstrators Grant: IEDG</h3></a>
-              <p>The aim of the project is to introduce a user interface named Speech-to-CDQL to allow users from different backgrounds to control a smart home using a voice-based interface
-                 directly. To achieve this, there are a series of steps. These include, speech to text, text to CDQL. To implement this the student will need to create a GUI, 
-                 use IoT technologies, NLP technologies, use ontologies, adapt existing middleware such as Dialogflow, and integrate with existing systems including CoaaS and Home Assistant.</p>
-              <span>Skills: <i>Python, Attention Encoder-Decoder Architecture, IoT Simulator, Docker, Dialogflow, Tensorflow, Deep Learning, Query Language, React, Flask, HTML, JavaScript, CSS</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/DeepSpeech2" title="Deep Speech 2" target="_blank"><h3 style="color: Black">Deep Speech 2</h3></a>
-              <p>This project aims to implement the Automatic Speech Recognition system named <a href="https://arxiv.org/abs/1512.02595" title="DeepSpeech2">Deep Speech 2</a> for mission-critical applications. 
-                Additionally, I also analyze how noises from wars affect Speech Recognition Systems.</p>
-              <p>Note: The automatic speech recognition system is implemened in Tensorflow and Pytorch. This code is also published on the official Keras example library: <a href="https://keras.io/examples/audio/ctc_asr/" target="_blank"> CTC ASR</a> </p>
-              <span>Skills: <i>Python, End-to-End algorithm, Recurent Neural Network (RNN), Speech Signal Processing, Tensorflow, Deep Learning, Data Augmentation, WandB</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/Simpson-Charater-Detection" title="Deakin Challenge" target="_blank"><h3 style="color: Black">Simpson Charater Detection</h3></a>
-              <p>The Deakin Simpsons challenge 2021 is a computer vision competition for which the goal is to recognize Simpsons characters individually in images using machine learning and deep learning.</p>
-              <p>Note: <i>1st</i> Prize Winner of the challenge. [<a href="deakin-challenge.pdf" download style="color: red;">download</a>]</p> 
-              <span>Skills: <i>Python, Tensorflow, Deep Learning, Image Data Augmentation, WandB</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/Melbourne_Pedestrian_Data" title="Melbourne Pedestrian Data" target="_blank"><h3 style="color: Black">Melbourne Pedestrian Data Analysis</h3></a>
-              <p>As a business owner, I want to know how much pedestrian foot traffic occurs in a potential new business location I would like to be able to compare pedestrian traffic 
-                through the day, week and month. I would like to see visualisations that can help in deciding where I can start my new venture.</p>
-              <span>Skills: <i>Python, Extract, Transform and Load (ETL) data, Sodapy, Selenium, Folium</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/kalapa" title="Kalapa" target="_blank"><h3 style="color: Black">Kalapa</h3></a>
-              <p>Kalapa's CreditScoring Challenge.</p>
-              <span>Skills: <i>Machine Learning, Python, WandB,Light Gradient Boosting Machine (LightGBM)</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/Deep-Learning" title="Deep Learning" target="_blank"><h3 style="color: Black">Deep Learning</h3></a>
-              <p>The fundamentals of deep learning and break into AI. Recently updated with cutting-edge techniques.</p>
-              <p>Source: <a href="https://www.coursera.org/specializations/deep-learning" target="_blank">Coursera</a></p>
-              <span>Skills: <i>Deep Learning, Machine Learning, Python</i></span>
-            </li>
-            <li class = "underline" >
-              <a href="https://github.com/parkerhuynh/machine-learning" title="Machine Learning" target="_blank"><h3 style="color: Black">Machine Learning</h3></a>
-              <p>Basic Supervisored and Unsupervisored algorithms</p>
-              <span>Skills: <i>Machine Learning, Python</i></span>
-            </li>
-          </ul>
-      </div> 
-      <div style="height: 40px; background-color:black; margin-top: 70px;"></div>
+      <p class="proj-desc">Predicted severe COVID-19 outcomes from CT images (largest CT dataset of COVID-19 patients at the time). Used 3D DenseNet with augmentation on Tensorflow.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">3D CNN</span><span class="tag">Docker</span><span class="tag">Medical Imaging</span></div>
+      <a href="https://github.com/parkerhuynh/STOIC-Challenge-2021" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
     </div>
-  </body>
+
+    <div class="proj-card featured">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/Simpson-Charater-Detection" target="_blank">Simpson Character Detection</a></div>
+        <span class="proj-badge">1st Prize</span>
+      </div>
+      <p class="proj-desc">1st Prize winner of the Deakin Simpsons AI Challenge 2021. Deep learning classifier with extensive image augmentation and WandB experiment tracking.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">Data Augmentation</span><span class="tag">WandB</span></div>
+      <a href="https://github.com/parkerhuynh/Simpson-Charater-Detection" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card featured">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/IEDG" target="_blank">Speech-to-CDQL (Smart Home)</a></div>
+        <span class="proj-badge">MSc Thesis</span>
+      </div>
+      <p class="proj-desc">Voice-based interface to control a smart home using speech recognition + encoder-decoder RNN to translate natural language into CDQL queries. 93% accuracy, 0.02% WER.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">Seq2Seq</span><span class="tag">Attention</span><span class="tag">IoT</span><span class="tag">React</span><span class="tag">Flask</span></div>
+      <a href="https://github.com/parkerhuynh/IEDG" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/DeepSpeech2" target="_blank">Deep Speech 2 (CTC ASR)</a></div>
+      </div>
+      <p class="proj-desc">Implemented Deep Speech 2 for mission-critical ASR applications. Published in the official <a href="https://keras.io/examples/audio/ctc_asr/" target="_blank">Keras example library</a>. Analysed the effect of wartime noise on speech recognition.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">CTC</span><span class="tag">RNN</span><span class="tag">TensorFlow</span><span class="tag">PyTorch</span><span class="tag">WandB</span></div>
+      <a href="https://github.com/parkerhuynh/DeepSpeech2" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/speech_image" target="_blank">Speech-To-Image (DALL-E + Voice)</a></div>
+      </div>
+      <p class="proj-desc">Integrated DALL-E into a voice-based UI so users can generate images from oral descriptions. Full-stack: Flask backend, React frontend.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">React</span><span class="tag">Flask</span><span class="tag">DALL-E</span><span class="tag">HTML/CSS</span></div>
+      <a href="https://github.com/parkerhuynh/speech_image" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/HUMS2023" target="_blank">HUMS2023 — Helicopter Gear Fault Detection</a></div>
+      </div>
+      <p class="proj-desc">Fatigue crack detection in thin-rim helicopter planet gears for the 13th Defence Science & Technology International HUMS Conference.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">Signal Processing</span><span class="tag">Fault Detection</span></div>
+      <a href="https://github.com/parkerhuynh/HUMS2023" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/Melbourne_Pedestrian_Data" target="_blank">Melbourne Pedestrian Data Analysis</a></div>
+      </div>
+      <p class="proj-desc">ETL pipeline and visualisations for pedestrian foot traffic across Melbourne to assist business location decision-making.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">ETL</span><span class="tag">Selenium</span><span class="tag">Folium</span><span class="tag">Sodapy</span></div>
+      <a href="https://github.com/parkerhuynh/Melbourne_Pedestrian_Data" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/kalapa" target="_blank">Kalapa Credit Scoring Challenge</a></div>
+      </div>
+      <p class="proj-desc">Credit scoring competition solution using LightGBM with feature engineering and WandB experiment tracking.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">LightGBM</span><span class="tag">ML</span><span class="tag">WandB</span></div>
+      <a href="https://github.com/parkerhuynh/kalapa" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-header">
+        <div class="proj-title"><a href="https://github.com/parkerhuynh/Deep-Learning" target="_blank">Deep Learning Fundamentals</a></div>
+      </div>
+      <p class="proj-desc">Implementations of deep learning fundamentals and cutting-edge techniques, based on the Coursera Deep Learning Specialization.</p>
+      <div class="proj-tags"><span class="tag">Python</span><span class="tag">Deep Learning</span><span class="tag">ML</span></div>
+      <a href="https://github.com/parkerhuynh/Deep-Learning" target="_blank" class="proj-link"><i class="fab fa-github"></i> View on GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Ngoc Dung Huynh · <a href="https://github.com/dunghuynhandy" target="_blank">github.com/dunghuynhandy</a></p>
+</footer>
+
+</body>
 </html>
